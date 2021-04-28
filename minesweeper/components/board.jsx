@@ -20,7 +20,7 @@ class Board extends React.Component{
         row.map((ele, idx2) => {
           return (
             <div key={[idx1, idx2]}>
-              <Tile tile={ele} updateGame={this.props.updateGame}/>
+              <Tile tileclass={ele} updateGame={this.props.updateGame}/>
             </div>
           )
         })

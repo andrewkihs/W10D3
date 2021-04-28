@@ -16,15 +16,15 @@ class Tile extends React.Component{
     const flagUni = '⚑'
     const bomb = "💣"
     const revealed = ''
-    let tile = this.props.tile;
+    let tile = this.props.tileclass;
     if (tile.bombed && this.state.revealed){
       return bomb;
-    } else if (tile.explored && this.state.revealed){
-      return revealed;
+    } else if (tile.explored) {
+      return tile.adjacentBombCount();
     } else if (tile.flagged) {
-      return flagUni
+      return flagUni;
     } else {
-      return ''
+      return '';
     }
   }
 
@@ -33,10 +33,13 @@ class Tile extends React.Component{
     if (e.altKey){
       console.log('alt clicked')
       altClick = true;
-      target.classList.add("flagged");
+      e.target.classList.add("flagged");
+    } else {
+      e.target.classList.add("revealed");
     }
-    // let tile = this.props.tile;
-    this.props.updateGame(this, altClick)
+    
+    let tilePOJO = this.props.tileclass;
+    this.props.updateGame(tilePOJO, altClick)
     this.setState({revealed: true})
     
   }
@@ -44,9 +47,13 @@ class Tile extends React.Component{
 
   render() {
     const symbol = this.sym();
+    let curTile = this.props.tileclass
+    let tileClass = 'tile';
+    console.log(curTile)
+    if (curTile.explored) titleClass = 'revealed'
     return(
       
-      <div className="tile" onClick={this.handleClick}>
+      <div className={tileClass} onClick={this.handleClick}>
         {/* {flagUni}
         {bomb}
         {revealed} */}
