@@ -8,7 +8,7 @@ class Game extends React.Component{
     // console.log('game constructed')
 
     this.state = {
-      board: new Minesweeper.Board(10, 3)
+      board: new Minesweeper.Board(10, 70)
     }
     this.updateGame = this.updateGame.bind(this);
   }
@@ -22,7 +22,7 @@ class Game extends React.Component{
 
     return (
       <div >
-        <Board board={this.state.board} updategame={this.updateGame}/>
+        <Board board={this.state.board} updateGame={this.updateGame}/>
       </div>
     )
   }

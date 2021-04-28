@@ -11,21 +11,22 @@ class Board extends React.Component{
   }
 
   mapOut() {
+    // each row has key corresponding to row number
+    // each tile has key corresponding to row, col indices
+
     const grid = this.props.board.grid;
-    console.log(grid);
     return grid.map((row, idx1) => {
-      let ele3 = (
+      let eachRow = (
         row.map((ele, idx2) => {
-          console.log("hello")
           return (
-            <div key={idx2}>
-              <Tile key={ele} tile={ele} />
+            <div key={[idx1, idx2]}>
+              <Tile tile={ele} updateGame={this.props.updateGame}/>
             </div>
           )
         })
       )
-      debugger
-      return ele3;
+      // console.log(row)
+      return <div className="row" key={idx1}>{eachRow}</div>
     })
   
 
@@ -34,10 +35,9 @@ class Board extends React.Component{
   render() {
 
     let gridEle = this.mapOut();
-    debugger
     // return OCmponient tree
     return(
-      <div>
+      <div className="board">
         {gridEle}
       </div>
     )
