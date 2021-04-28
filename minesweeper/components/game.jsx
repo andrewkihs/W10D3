@@ -14,15 +14,15 @@ class Game extends React.Component{
   }
   
   updateGame() {
-    return 'hello'
+    // return 'hello'
   }
 
 
   render() {
 
     return (
-      <div board={this.state.board} updateGame={this.updateGame}>
-
+      <div >
+        <Board board={this.state.board} updategame={this.updateGame}/>
       </div>
     )
   }

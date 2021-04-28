@@ -3,6 +3,7 @@ import * as Minesweeper from './minesweeper';
 
 class Tile extends React.Component{
   constructor(props) {
+    console.log("yay")
     super(props);
 
 
@@ -12,7 +13,11 @@ class Tile extends React.Component{
 
   render() {
     return(
-      <div></div>
+      <div>
+        T
+      </div>
     )
   }
 }
+
+export default Tile;
